@@ -1,0 +1,254 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Standing Ovulation | Cycle & Wellness</title>
+<style>
+:root {
+  --ink:#342d36; --muted:#756c75; --rose:#d86e83;
+  --pink:#f9e9ec; --cream:#fffaf6; --green:#dce9df;
+  --line:#eadfe0;
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  margin:0; background:var(--cream); color:var(--ink);
+  font-family:Arial, sans-serif; line-height:1.6;
+}
+.top {
+  display:flex; align-items:center; justify-content:space-between;
+  padding:20px 7%; border-bottom:1px solid var(--line);
+  background:var(--cream); position:sticky; top:0; z-index:5;
+}
+.brand { font-size:1.3rem; font-weight:bold; color:var(--ink); text-decoration:none; }
+.brand span { color:var(--rose); }
+nav { display:flex; gap:24px; }
+nav a { color:var(--ink); text-decoration:none; }
+.menu { display:none; }
+.hero {
+  padding:70px 8%; display:grid; grid-template-columns:1.1fr .9fr;
+  gap:40px; align-items:center; min-height:500px;
+}
+.eyebrow { font-size:.75rem; letter-spacing:3px; font-weight:bold; color:var(--rose); }
+h1 { font-size:clamp(2.6rem,5vw,4.5rem); line-height:1.1; margin:15px 0; }
+h1 em { color:var(--rose); font-family:Georgia,serif; font-weight:normal; }
+.intro { font-size:1.1rem; color:var(--muted); }
+.cta {
+  display:inline-block; border:0; border-radius:30px; background:var(--ink);
+  color:white; padding:13px 22px; text-decoration:none; cursor:pointer;
+  font-size:1rem; margin-top:12px;
+}
+.fine,.disclaimer { font-size:.82rem; color:var(--muted); }
+.hero-art {
+  height:330px; border-radius:48% 48% 20px 20px; background:var(--pink);
+  position:relative; overflow:hidden; display:grid; place-items:center;
+}
+.sun { width:220px; height:220px; border-radius:50%; background:#efb6bd; position:absolute; top:20px; right:25px; }
+.flower { position:absolute; font-size:11rem; color:#a14c66; left:35px; top:40px; }
+.art-card { position:absolute; bottom:22px; right:15px; max-width:240px; background:white; border-radius:18px; padding:16px; }
+.section { padding:65px 8%; }
+.soft { background:#f8efeb; }
+.section-head { display:flex; justify-content:space-between; gap:25px; align-items:end; margin-bottom:25px; }
+h2 { font-size:clamp(2rem,3vw,3rem); line-height:1.15; margin:8px 0; }
+.section-head>p { max-width:330px; color:var(--muted); }
+.tracker-grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+.panel { background:white; border:1px solid var(--line); border-radius:18px; padding:24px; }
+.panel h3 { margin-top:0; }
+label { display:block; color:var(--muted); margin:12px 0 6px; }
+input[type=date] { width:100%; padding:12px; border:1px solid var(--line); border-radius:10px; font:inherit; }
+.status { color:#52745b; min-height:1.3em; font-size:.9rem; }
+.stats { display:grid; grid-template-columns:1fr 1fr; gap:20px; align-content:center; }
+.stats>div { display:flex; flex-direction:column; }
+.stat-label { color:var(--muted); font-size:.85rem; }
+.stats strong { font-size:1.15rem; }
+.history { margin-top:18px; }
+.history ul { color:var(--muted); }
+.text-btn { background:none; border:0; color:#a34e65; text-decoration:underline; cursor:pointer; }
+.cards { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+.learn-card { background:white; border-radius:18px; padding:25px; }
+.learn-card>span { display:inline-grid; place-items:center; width:38px; height:38px; border-radius:50%; background:var(--green); }
+.learn-card p,.faq p { color:var(--muted); }
+.wellness-box { background:var(--green); border-radius:24px; padding:30px; display:grid; grid-template-columns:1fr 1fr; gap:24px; align-items:center; }
+.moods { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+.moods button { background:white; border:1px solid white; border-radius:14px; padding:15px; cursor:pointer; font-size:1rem; }
+.moods button span { margin-left:8px; }
+.faq { max-width:950px; }
+footer { border-top:1px solid var(--line); padding:24px 8%; display:flex; justify-content:space-between; gap:15px; }
+footer p { color:var(--muted); font-size:.85rem; }
+@media(max-width:700px) {
+  .top { padding:16px 5%; }
+  nav { display:none; position:absolute; top:60px; left:0; right:0; background:var(--cream); padding:20px; flex-direction:column; }
+  nav.open { display:flex; }
+  .menu { display:block; background:none; border:0; font-size:1.4rem; }
+  .hero { grid-template-columns:1fr; padding:45px 6%; }
+  .hero-art { height:280px; }
+  .section { padding:45px 6%; }
+  .section-head { display:block; }
+  .tracker-grid,.cards,.wellness-box { grid-template-columns:1fr; }
+  footer { flex-direction:column; }
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="#home">standing<span>ovulation</span></a>
+  <nav id="navigation">
+    <a href="#tracker">Cycle tracker</a>
+    <a href="#learn">Learn</a>
+    <a href="#wellness">Wellness</a>
+  </nav>
+  <button id="menuBtn" class="menu" aria-label="Open menu">☰</button>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div>
+    <p class="eyebrow">YOUR BODY. YOUR KNOWLEDGE.</p>
+    <h1>Get to know your cycle.<br><em>Feel more in control.</em></h1>
+    <p class="intro">A calm, supportive space to track your period, notice patterns, and learn about reproductive health.</p>
+    <a class="cta" href="#tracker">Start tracking →</a>
+    <p class="fine">Your entries stay in this browser on this device.</p>
+  </div>
+  <div class="hero-art">
+    <div class="sun"></div>
+    <div class="flower">✿</div>
+    <div class="art-card">
+      <p>Today is a good day to check in with yourself.</p>
+      <small>YOUR DAILY REMINDER</small>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="tracker">
+  <div class="section-head">
+    <div><p class="eyebrow">CYCLE TRACKER</p><h2>Your cycle, at a glance</h2></div>
+    <p>Log your period dates to start noticing your own patterns.</p>
+  </div>
+  <div class="tracker-grid">
+    <article class="panel">
+      <h3>Log period start</h3>
+      <label for="periodDate">First day of your period</label>
+      <input id="periodDate" type="date">
+      <button class="cta" id="logPeriod">Save period date</button>
+      <p class="status" id="logStatus" aria-live="polite"></p>
+    </article>
+    <article class="panel stats">
+      <div><span class="stat-label">Last period start</span><strong id="lastPeriod">Not logged yet</strong></div>
+      <div><span class="stat-label">Cycle length</span><strong id="cycleLength">—</strong></div>
+      <div><span class="stat-label">Logged periods</span><strong id="periodCount">0</strong></div>
+    </article>
+  </div>
+  <div class="panel history">
+    <h3>Your logged dates</h3>
+    <ul id="periodList"><li>No dates yet — add your first above.</li></ul>
+    <button class="text-btn" id="clearData">Clear locally saved dates</button>
+  </div>
+  <p class="disclaimer">Cycle estimates are not contraception or a diagnosis. Ovulation varies, and calendar predictions can be inaccurate.</p>
+</section>
+
+<section class="section soft" id="learn">
+  <div class="section-head">
+    <div><p class="eyebrow">LEARN WITHOUT JUDGMENT</p><h2>Small lessons, useful knowledge</h2></div>
+    <p>Explore the basics at your own pace.</p>
+  </div>
+  <div class="cards">
+    <article class="learn-card"><span>01</span><h3>Understanding your cycle</h3><p>The menstrual cycle includes several phases. Timing can vary from person to person and month to month.</p></article>
+    <article class="learn-card"><span>02</span><h3>What is ovulation?</h3><p>Ovulation is when an ovary releases an egg. Tracking can help you learn patterns, but it cannot confirm ovulation on its own.</p></article>
+    <article class="learn-card"><span>03</span><h3>Symptoms & self-care</h3><p>Rest, hydration, movement, and recording symptoms may help you communicate changes with a healthcare professional.</p></article>
+  </div>
+</section>
+
+<section class="section" id="wellness">
+  <div class="wellness-box">
+    <div><p class="eyebrow">A GENTLE CHECK-IN</p><h2>How are you feeling today?</h2><p>Pick the option that feels closest. Your answer is stored only in this browser.</p></div>
+    <div class="moods">
+      <button data-mood="Good">☀️ <span>Good</span></button>
+      <button data-mood="Okay">🌿 <span>Okay</span></button>
+      <button data-mood="Low">🌧️ <span>Low</span></button>
+      <button data-mood="Uncomfortable">🫶 <span>Uncomfortable</span></button>
+    </div>
+    <p id="moodStatus" class="status" aria-live="polite"></p>
+  </div>
+</section>
+
+<section class="section faq">
+  <p class="eyebrow">A QUICK NOTE</p>
+  <h2>Health information, with care.</h2>
+  <p>This is an educational prototype, not medical advice. It does not connect to clinicians or send your information anywhere. If you have severe pain, unusually heavy bleeding, or concerns about your cycle, speak with a qualified healthcare professional.</p>
+</section>
+</main>
+
+<footer>
+  <a class="brand" href="#home">standing<span>ovulation</span></a>
+  <p>Made for learning and self-awareness · Prototype</p>
+</footer>
+
+<script>
+const $ = id => document.getElementById(id);
+const KEY = 'standingOvulation.periodDates';
+
+function getDates() {
+  try { return JSON.parse(localStorage.getItem(KEY) || '[]'); }
+  catch { return []; }
+}
+
+function render() {
+  const dates = getDates().sort();
+  $('periodCount').textContent = dates.length;
+  $('lastPeriod').textContent = dates.length
+    ? new Date(dates[dates.length-1] + 'T12:00:00').toLocaleDateString()
+    : 'Not logged yet';
+
+  if (dates.length > 1) {
+    const a = new Date(dates[dates.length-1] + 'T12:00:00');
+    const b = new Date(dates[dates.length-2] + 'T12:00:00');
+    $('cycleLength').textContent = Math.round((a-b)/86400000) + ' days';
+  } else {
+    $('cycleLength').textContent = '—';
+  }
+
+  $('periodList').innerHTML = dates.length
+    ? dates.slice().reverse().map(d =>
+      `<li>${new Date(d+'T12:00:00').toLocaleDateString()}</li>`
+    ).join('')
+    : '<li>No dates yet — add your first above.</li>';
+}
+
+$('logPeriod').addEventListener('click', () => {
+  const date = $('periodDate').value;
+  if (!date) {
+    $('logStatus').textContent = 'Please choose a date first.';
+    return;
+  }
+  const dates = getDates();
+  if (!dates.includes(date)) dates.push(date);
+  localStorage.setItem(KEY, JSON.stringify(dates));
+  $('logStatus').textContent = 'Saved on this device.';
+  render();
+});
+
+$('clearData').addEventListener('click', () => {
+  if (confirm('Clear all period dates saved in this browser?')) {
+    localStorage.removeItem(KEY);
+    $('logStatus').textContent = 'Local dates cleared.';
+    render();
+  }
+});
+
+document.querySelectorAll('[data-mood]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    localStorage.setItem('standingOvulation.mood', btn.dataset.mood);
+    $('moodStatus').textContent = 'Thanks for checking in. You selected: ' + btn.dataset.mood + '.';
+  });
+});
+
+$('menuBtn').addEventListener('click', () => {
+  $('navigation').classList.toggle('open');
+});
+
+render();
+</script>
+</body>
+</html>
